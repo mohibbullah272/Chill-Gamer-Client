@@ -15,6 +15,9 @@ background-color: #2c2958;
   font-family: "Birthstone", cursive;
   font-size: 30px;
 }
+.bannerTitle{
+  font-family: "Birthstone", cursive;
+}
 a.active{
   text-decoration: underline;
   font-weight: bolder;
