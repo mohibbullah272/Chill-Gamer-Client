@@ -1,19 +1,19 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoGameControllerOutline } from "react-icons/io5";
 
 const Navbar = () => {
     const links = <>
-   <NavLink to={'/'}><li>Home</li></NavLink>
+  <NavLink to={'/'}><li>Home</li></NavLink>
    <NavLink to={'/allReview'}><li>All Reviews</li></NavLink>
    <NavLink to={'/addReview'}><li>Add Reviews</li></NavLink>
    <NavLink to={'/myReview'}><li>My Reviews</li></NavLink>
    <NavLink to={'/gameWatchList'}><li>Game WatchList</li></NavLink>
     </>
     return (
-        <div className="navbar ">
+        <div className="navbar p-2">
         <div className="navbar-start">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost bg-white lg:hidden">
+            <div  tabIndex={0} role="button" className="btn btn-ghost bg-white lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -30,9 +30,19 @@ const Navbar = () => {
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-             {
-links
-             }
+   <NavLink to={'/'}><li>Home</li></NavLink>
+   <NavLink to={'/allReview'}><li>All Reviews</li></NavLink>
+   <NavLink to={'/addReview'}><li>Add Reviews</li></NavLink>
+   <NavLink to={'/myReview'}><li>My Reviews</li></NavLink>
+   <NavLink to={'/gameWatchList'}><li>Game WatchList</li></NavLink>
+   <div className="flex gap-5">
+  <Link to={'/signUp'}>
+  <button className="btn btn-xs btn-neutral">SignUp</button>
+  </Link>
+ <Link to={'/login'}>
+ <button className="btn btn-xs btn-neutral">Login</button>
+ </Link>
+   </div>
             </ul>
           </div>
           <a className="btn btn-ghost text-white text-xl nav">Chill Gamer
@@ -42,14 +52,21 @@ links
          
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu gap-5 text-white menu-horizontal px-1">
+          <ul className="menu gap-5 text-white menu-horizontal  px-1">
        {
         links
        }
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-end md:flex hidden ">
+          <div>
+         <Link to={'/signUp'}>
+         <button className="btn bg-gradient-to-l from-purple-700 to-cyan-700 border-none mr-5 text-gray-300">SignUp</button>
+         </Link>
+         <Link to={'/login'}>
+         <button className="btn  bg-gradient-to-l from-purple-700 to-cyan-700 border-none text-gray-300">Login</button>
+         </Link>
+          </div>
         </div>
       </div>
     );

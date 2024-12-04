@@ -4,6 +4,7 @@ const AddReviews = () => {
     return (
         <div>
             <Navbar></Navbar>
+            
         </div>
     );
 };

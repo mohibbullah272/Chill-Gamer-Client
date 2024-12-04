@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
 @tailwind base;
 @tailwind components;
@@ -7,9 +7,9 @@
 body{
 padding: 0;
 margin: 0;
-font-family: "Cinzel", serif;
+font-family: "Roboto Condensed", sans-serif;
 font-optical-sizing: auto;
-background-color: #2c2958;
+background: linear-gradient(to right, rgb(28, 29, 29),rgb(94, 20, 94) );
 }
 .nav{
   font-family: "Birthstone", cursive;

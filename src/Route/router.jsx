@@ -5,6 +5,8 @@ import AllReview from '../Page/AllReview';
 import AddReviews from '../Page/AddReviews';
 import MyReview from '../Page/MyReview';
 import GameWatchList from '../Page/GameWatchList';
+import SignUp from '../Page/SignUp';
+import SignIn from '../Page/SignIn';
 
 const router = createBrowserRouter([
     {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
     {
         path:'gameWatchList',
         element:<GameWatchList></GameWatchList>
+    },
+    {
+        path:'signUp',
+        element: <SignUp></SignUp>
+    },
+    {
+        path:'login',
+        element:<SignIn></SignIn>
     }
 ])
 
