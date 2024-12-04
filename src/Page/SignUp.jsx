@@ -6,7 +6,7 @@ import { AuthContext } from "../auth provider/AuthProvider";
 
 
 const SignUp = () => {
-    const {signUpByEmail,signUpByGoogle}=useContext(AuthContext)
+    const {signUpByEmail,signUpByGoogle,updateUser}=useContext(AuthContext)
  const handleGoogleLogin=()=>{
     signUpByGoogle()
     .then(result=> {
@@ -24,6 +24,11 @@ const SignUp = () => {
         signUpByEmail(email,password)
         .then(result=> {
             console.log(result.user)
+            updateUser(name,photo)
+            .then(()=>{
+              console.log('profile update hoise')
+            })
+            .catch(err=> console.log(err))
         })
         .catch(error => console.log(error))
     }

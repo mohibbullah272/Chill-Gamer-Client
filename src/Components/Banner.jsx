@@ -53,7 +53,7 @@ export default function Banner() {
   <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
 </div>
             </p>
-            <button className='bg-amber-700 btn bg-opacity-95 border-none rounded-3xl text-gray-300'>Explore More</button>
+            <button className='bg-amber-700 w-full btn bg-opacity-95 border-none rounded-3xl text-gray-300'>Explore More</button>
             </div>
             </div>
         </SwiperSlide>
@@ -80,7 +80,7 @@ export default function Banner() {
   <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
 </div>
             </p>
-            <button className='bg-amber-700 btn bg-opacity-95 border-none rounded-3xl text-gray-300'>Explore More</button>
+            <button className='bg-amber-700 w-full btn bg-opacity-95 border-none rounded-3xl text-gray-300'>Explore More</button>
             </div>
             </div>
         </SwiperSlide>
@@ -107,7 +107,7 @@ export default function Banner() {
   <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
 </div>
             </p>
-            <button className='bg-amber-700 btn bg-opacity-95 border-none rounded-3xl text-gray-300'>Explore More</button>
+            <button className='bg-amber-700 w-full btn bg-opacity-95 border-none rounded-3xl text-gray-300'>Explore More</button>
             </div>
             </div>
         </SwiperSlide>
@@ -134,7 +134,7 @@ export default function Banner() {
   <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
 </div>
             </p>
-            <button className='bg-amber-700 btn bg-opacity-95 border-none rounded-3xl text-gray-300'>Explore More</button>
+            <button className='bg-amber-700 w-full btn bg-opacity-95 border-none rounded-3xl text-gray-300'>Explore More</button>
             </div>
             </div>
         </SwiperSlide>
