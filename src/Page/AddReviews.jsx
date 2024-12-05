@@ -23,7 +23,29 @@ const AddReviews = () => {
  
   ];
   const [selectedOption, setSelectedOption] = useState(null);
-const [SelectedGenres,setSelectedGenres]=useState(null)
+const [selectedGenres,setSelectedGenres]=useState(null)
+const handleAddReview=(e)=>{
+  e.preventDefault()
+  const form =e.target
+  const name = form.Name.value
+  const email = form.email.value
+  const gameName=form.gameName.value
+  const description =form.description.value
+  const publishYear=form.publishYear.value
+  const rating = selectedOption.value
+  const genres = selectedGenres.value
+  const review ={name,email,gameName,description,publishYear,rating,genres}
+  console.log(review)
+  fetch('http://localhost:5500/addReviews',{
+    method:"POST",
+    headers:{
+      "content-type":"application/json"
+    },
+    body: JSON.stringify(review)
+  })
+  .then(res=> res.json())
+  .then(data=> console.log(data))
+}
     return (
         <div>
             <Navbar></Navbar>
@@ -34,7 +56,7 @@ const [SelectedGenres,setSelectedGenres]=useState(null)
   </div>
 
 <div className="mt-5 px-5">
-<form >
+<form onSubmit={handleAddReview}>
 <div className="max-w-7xl mx-auto">
 <div className="md:flex w-full gap-4">
 <div className="form-control md:w-1/2 w-full">
@@ -94,7 +116,7 @@ const [SelectedGenres,setSelectedGenres]=useState(null)
             <span className="label-text text-white">Genres</span>
           </label>
           <Select
-        defaultValue={SelectedGenres }
+        defaultValue={selectedGenres }
         onChange={setSelectedGenres}
         options={Genres }
       />
