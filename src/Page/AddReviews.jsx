@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import { AuthContext } from "../auth provider/AuthProvider";
 import Select from 'react-select';
 import { FaPenAlt } from "react-icons/fa";
+import Footer from "../Components/Footer";
 
 const AddReviews = () => {
    const {user}=useContext(AuthContext)
@@ -131,7 +132,9 @@ const handleAddReview=(e)=>{
 </div>
 </form>
 </div>
-
+<footer className="mt-20">
+  <Footer></Footer>
+</footer>
         </div>
     );
 };

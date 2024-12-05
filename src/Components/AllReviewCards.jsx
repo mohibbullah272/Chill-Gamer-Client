@@ -18,7 +18,7 @@ const AllReviewCards = ({review}) => {
     <p>Review by: {review.name}</p>
     <p>{review.description}</p>
     <div className="card-actions ">
-      <button className="btn btn-block bg-gradient-to-r from-indigo-800 to-purple-700 border-none  text-xl text-gray-200">Explore details <MdArrowOutward /></button>
+      <button className="btn btn-block bg-stone-500 border-none  text-xl text-gray-200">Explore details <MdArrowOutward /></button>
     </div>
   </div>
 </div>
