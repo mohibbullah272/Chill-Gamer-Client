@@ -30,11 +30,12 @@ const handleAddReview=(e)=>{
   const name = form.Name.value
   const email = form.email.value
   const gameName=form.gameName.value
+  const GameCover=form.GameCover.value
   const description =form.description.value
   const publishYear=form.publishYear.value
   const rating = selectedOption.value
   const genres = selectedGenres.value
-  const review ={name,email,gameName,description,publishYear,rating,genres}
+  const review ={name,email,gameName,description,publishYear,rating,genres,GameCover}
   console.log(review)
   fetch('http://localhost:5500/addReviews',{
     method:"POST",
@@ -45,6 +46,7 @@ const handleAddReview=(e)=>{
   })
   .then(res=> res.json())
   .then(data=> console.log(data))
+  form.reset()
 }
     return (
         <div>

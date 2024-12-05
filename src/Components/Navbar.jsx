@@ -57,7 +57,7 @@ const handleSignOut =()=>{
    
    <div>
     {
-     user ? <div className="flex items-center gap-3">
+     user ? <div className="flex items-center md:hidden gap-3">
      <img className="w-12 rounded-full" src={user.photoURL} alt="" />
      <button onClick={handleSignOut} className="btn border-none bg-red-500">SignOut
      <MdLogout className="text-xl"/>
