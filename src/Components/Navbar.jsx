@@ -5,7 +5,7 @@ import { AuthContext } from "../auth provider/AuthProvider";
 import { MdLogout } from "react-icons/md";
 const Navbar = () => {
 const {user,logOutUser,setUser}=useContext(AuthContext)
-console.log(user)
+
 const handleSignOut =()=>{
   logOutUser()
   .then(()=>{

@@ -1,6 +1,7 @@
 import { MdArrowOutward } from "react-icons/md";
+import { Link } from "react-router-dom";
 const AllReviewCards = ({review}) => {
-    console.log(review)
+   
     return (
         <div className="card bg-white/10 p-6 rounded-xl shadow-xl backdrop-blur-3xl text-white ">
   <div>
@@ -18,7 +19,9 @@ const AllReviewCards = ({review}) => {
     <p>Review by: {review.name}</p>
     <p>{review.description}</p>
     <div className="card-actions ">
-      <button className="btn btn-block bg-stone-500 border-none  text-xl text-gray-200">Explore details <MdArrowOutward /></button>
+     <Link to={`reviewDetails/${review._id}`}>
+     <button className="btn btn-block bg-stone-500 border-none  text-xl text-gray-200">Explore details <MdArrowOutward /></button>
+     </Link>
     </div>
   </div>
 </div>
