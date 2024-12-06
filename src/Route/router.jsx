@@ -8,6 +8,7 @@ import GameWatchList from '../Page/GameWatchList';
 import SignUp from '../Page/SignUp';
 import SignIn from '../Page/SignIn';
 import ReviewDetails from '../Page/ReviewDetails';
+import UpdateReview from '../Page/UpdateReview';
 
 const router = createBrowserRouter([
     {
@@ -24,8 +25,9 @@ const router = createBrowserRouter([
         element: <AddReviews></AddReviews>
     },
     {
-        path: 'myReview',
-        element:<MyReview></MyReview>
+        path: 'myReview/:email',
+        element:<MyReview></MyReview>,
+        loader:({params})=> fetch(`http://localhost:5500/myReview/${params.email}`)
     },
     {
         path:'gameWatchList',
@@ -42,6 +44,11 @@ const router = createBrowserRouter([
     {
         path:'allReview/reviewDetails/:id',
         element:<ReviewDetails></ReviewDetails>,
+        loader:({params})=> fetch(`http://localhost:5500/reviews/${params.id}`)
+    },
+    {
+        path: '/updateReview/:id',
+        element: <UpdateReview></UpdateReview>,
         loader:({params})=> fetch(`http://localhost:5500/reviews/${params.id}`)
     }
 ])

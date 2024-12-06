@@ -17,14 +17,11 @@ const handleSignOut =()=>{
 
 
 
-
-
-
     const links = <>
   <NavLink to={'/'}><li>Home</li></NavLink>
    <NavLink to={'/allReview'}><li>All Reviews</li></NavLink>
    <NavLink to={'/addReview'}><li>Add Reviews</li></NavLink>
-   <NavLink to={'/myReview'}><li>My Reviews</li></NavLink>
+   <NavLink to={`/myReview/${user?.email}`}><li>My Reviews</li></NavLink>
    <NavLink to={'/gameWatchList'}><li>Game WatchList</li></NavLink>
     </>
 
@@ -52,7 +49,7 @@ const handleSignOut =()=>{
    <NavLink to={'/'}><li>Home</li></NavLink>
    <NavLink to={'/allReview'}><li>All Reviews</li></NavLink>
    <NavLink to={'/addReview'}><li>Add Reviews</li></NavLink>
-   <NavLink to={'/myReview'}><li>My Reviews</li></NavLink>
+   <NavLink to={`/myReview/${user?.email}`}><li>My Reviews</li></NavLink>
    <NavLink to={'/gameWatchList'}><li>Game WatchList</li></NavLink>
    
    <div>

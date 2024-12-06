@@ -3,16 +3,43 @@ import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import { AuthContext } from "../auth provider/AuthProvider";
 import { FaPen, FaTrashAlt } from "react-icons/fa";
+import { Link, useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyReview = () => {
-    const {user}=useContext(AuthContext)
-    const [reviews,setReviews]=useState([])
-    useEffect(()=>{
-        fetch( `http://localhost:5500/myReview/${user?.email}`)
-        .then(res=> res.json())
-        .then(data => setReviews(data))
-    },[])
-  
+ const loadedReview = useLoaderData()
+ const [reviews,setReviews]=useState(loadedReview)
+  const handleRemoveReview=(id)=>{
+console.log(id)
+Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    fetch(`http://localhost:5500/myReview/${id}`,{
+      method:"DELETE"
+    })
+    .then(res=> res.json())
+    .then(data => {
+      if(data.deletedCount){
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your review has been deleted.",
+          icon: "success"
+        });
+        const remaining = reviews.filter(review=> review._id !== id)
+        setReviews(remaining)
+      }
+    })
+
+  }
+});
+  }
     return (
         <div>
             <Navbar></Navbar>
@@ -42,8 +69,10 @@ const MyReview = () => {
           <td>{review.genres}</td>
           <td>{review.rating}</td>
           <td><div className="flex gap-10">
-              <button title="edit"><FaPen></FaPen></button>
-              <button title="delete"><FaTrashAlt className="text-red-700"></FaTrashAlt></button>
+            <Link to={`/updateReview/${review._id}`}>
+            <button title="edit"><FaPen></FaPen></button>
+            </Link>
+              <button onClick={()=> handleRemoveReview(review._id)} title="delete"><FaTrashAlt className="text-red-700"></FaTrashAlt></button>
               </div></td>
         </tr>
       )
