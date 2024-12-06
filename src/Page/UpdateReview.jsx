@@ -3,6 +3,7 @@ import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import Select from 'react-select'
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 const UpdateReview = () => {
    
     const loadedReview = useLoaderData()
@@ -25,7 +26,6 @@ const UpdateReview = () => {
       ];
       const [selectedOption, setSelectedOption] = useState(null);
     const [selectedGenres,setSelectedGenres]=useState(null)
-    console.log(selectedGenres,selectedOption)
     const handleUpdate=(e)=>{
         e.preventDefault()
         const form =e.target
@@ -39,6 +39,25 @@ const UpdateReview = () => {
   const genres = selectedGenres ===null? loadedReview?.genres :selectedGenres?.value
   const update ={name,email,gameName,description,publishYear,rating,genres,GameCover}
   console.log(update)
+  fetch(`http://localhost:5500/updateReview/${loadedReview._id}`,{
+    method:"PATCH",
+    headers:{
+      "content-type":"application/json"
+    },
+    body:JSON.stringify(update)
+  })
+  .then(res=> res.json())
+  .then(data=> {
+    if(data.modifiedCount > 0){
+      Swal.fire({
+        position: "top-center",
+        icon: "success",
+        title: "update successfully complete",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+  })
     }
     return (
         <div>
@@ -52,13 +71,13 @@ const UpdateReview = () => {
           <label className="label">
             <span className="label-text text-white">Email</span>
           </label>
-          <input type="email" name="email" defaultValue={loadedReview?.email}  className="input input-bordered" required />
+          <input type="email" name="email" defaultValue={loadedReview?.email} readOnly className="input input-bordered" required />
         </div>
 <div className="form-control md:w-1/2 w-full">
           <label className="label">
             <span className="label-text text-white">Name</span>
           </label>
-          <input type="text" name="Name" defaultValue={loadedReview?.name} className="input input-bordered" required />
+          <input type="text" name="Name" defaultValue={loadedReview?.name} className="input input-bordered" readOnly required />
         </div>
 </div>
 <div className="md:flex w-full gap-4">

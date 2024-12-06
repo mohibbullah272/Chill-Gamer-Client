@@ -66,13 +66,13 @@ const handleAddReview=(e)=>{
           <label className="label">
             <span className="label-text text-white">Email</span>
           </label>
-          <input type="email" name="email" defaultValue={user?.email}  className="input input-bordered" required />
+          <input type="email" readOnly name="email" defaultValue={user?.email}  className="input input-bordered" required />
         </div>
 <div className="form-control md:w-1/2 w-full">
           <label className="label">
             <span className="label-text text-white">Name</span>
           </label>
-          <input type="text" name="Name" defaultValue={user?.displayName} className="input input-bordered" required />
+          <input type="text" readOnly name="Name" defaultValue={user?.displayName} className="input input-bordered" required />
         </div>
 </div>
 <div className="md:flex w-full gap-4">

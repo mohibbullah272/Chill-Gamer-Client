@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import { FaGamepad, FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../auth provider/AuthProvider";
+import Footer from "../Components/Footer";
 
 const SignIn = () => {
     const {loginWithEmail,signUpByGoogle}=useContext(AuthContext)
@@ -57,6 +58,9 @@ const SignIn = () => {
       <p>Don't have an account ? <Link to={'/signUp'}><span className="text-neutral-900 underline ">SignUp</span></Link></p>
       </form>
     </div>
+    <footer className="mt-10">
+      <Footer></Footer>
+    </footer>
         </div>
     );
 };

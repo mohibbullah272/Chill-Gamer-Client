@@ -87,7 +87,7 @@ const handleSignOut =()=>{
         <div className="navbar-end md:flex hidden ">
      {
       user ? <div className="flex items-center gap-3">
-<img className="w-12 rounded-full" src={user.photoURL} alt="" />
+<img className="w-12 h-[50px] rounded-full" src={user.photoURL} alt="" />
 <button onClick={handleSignOut} className="btn border-none bg-red-500">SignOut
 <MdLogout className="text-xl"/>
 </button>

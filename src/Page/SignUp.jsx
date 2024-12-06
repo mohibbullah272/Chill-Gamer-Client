@@ -3,6 +3,7 @@ import Navbar from "../Components/Navbar";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../auth provider/AuthProvider";
+import Footer from "../Components/Footer";
 
 
 const SignUp = () => {
@@ -79,6 +80,9 @@ const SignUp = () => {
         <p>Already have an account ? <Link to={'/login'}><span className=" text-neutral-900 underline">Login</span></Link></p>
       </form>
     </div>
+    <footer className="mt-10">
+      <Footer></Footer>
+    </footer>
         </div>
     );
 };
