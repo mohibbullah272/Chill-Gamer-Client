@@ -11,11 +11,18 @@ import ReviewDetails from '../Page/ReviewDetails';
 import UpdateReview from '../Page/UpdateReview';
 import NotFound from '../Page/NotFound';
 import PrivetRoute from '../PrivetRoute/PrivetRoute';
+import Home from '../Page/Home';
 
 const router = createBrowserRouter([
     {
         path:'/',
-        element: <Layout></Layout>
+        element: <Layout></Layout>,
+        children:[
+            {
+                path:'/',
+                element:<Home></Home>
+            }
+        ]
     },
     {
         path:'allReview',
