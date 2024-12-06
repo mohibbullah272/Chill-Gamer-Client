@@ -7,6 +7,11 @@ const GameWatchList = () => {
         <div>
             <Navbar></Navbar>
           
+
+
+          <footer>
+            <Footer></Footer>
+          </footer>
         </div>
     );
 };

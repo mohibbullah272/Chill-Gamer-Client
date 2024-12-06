@@ -4,6 +4,7 @@ import { AuthContext } from "../auth provider/AuthProvider";
 import Select from 'react-select';
 import { FaPenAlt } from "react-icons/fa";
 import Footer from "../Components/Footer";
+import Swal from "sweetalert2";
 
 const AddReviews = () => {
    const {user}=useContext(AuthContext)
@@ -46,7 +47,19 @@ const handleAddReview=(e)=>{
     body: JSON.stringify(review)
   })
   .then(res=> res.json())
-  .then(data=> console.log(data))
+  .then(data=> {
+    if(data.insertedId){
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your review has successfully uploaded",
+        showConfirmButton: false,
+        timer: 1500
+        
+      });
+    
+    }
+  })
   form.reset()
 }
     return (

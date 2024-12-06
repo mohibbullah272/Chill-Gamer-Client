@@ -57,6 +57,15 @@ const UpdateReview = () => {
         timer: 1500
       });
     }
+   if(data.modifiedCount <= 0){
+    Swal.fire({
+      position: "top-right",
+      icon: "info",
+      title: "couldn't found any changes",
+      showConfirmButton: false,
+      timer: 1500
+    });
+   }
   })
     }
     return (

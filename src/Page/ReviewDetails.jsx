@@ -1,11 +1,45 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { AuthContext } from '../auth provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const ReviewDetails = () => {
     const details=useLoaderData()
-   console.log(details)
+    const {user}=useContext(AuthContext)
+    console.log(details)
+  const handleAddToWatchList=()=>{
+const description=details.description
+const rating=details.rating
+const publishYear=details.publishYear
+const genres=details.genres
+const gameName=details.gameName
+const GameCover=details.GameCover
+const name = user.displayName
+const email = user.email
+const watchList ={name,email,gameName,GameCover,genres,publishYear,rating,description}
+
+    fetch('http://localhost:5500/watchList',{
+      method:"POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body:JSON.stringify(watchList)
+    })
+    .then(res=> res.json())
+    .then(data => {
+      if(data.insertedId){
+        Swal.fire({
+          position: "top-left",
+          icon: "success",
+          title: "Review successfully added to watch list",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    })
+  }
     return (
         <div>
             <header>
@@ -31,7 +65,7 @@ const ReviewDetails = () => {
     <p>description : {details.description}</p>
     <p></p>
     <div className="card-actions ">
-      <button className="btn btn-block btn-outline">Add to WatchList</button>
+      <button onClick={handleAddToWatchList} className="btn btn-block btn-outline">Add to WatchList</button>
     </div>
   </div>
 </div>
