@@ -22,7 +22,7 @@ const handleSignOut =()=>{
    <NavLink to={'/allReview'}><li>All Reviews</li></NavLink>
    <NavLink to={'/addReview'}><li>Add Reviews</li></NavLink>
    <NavLink to={`/myReview/${user?.email}`}><li>My Reviews</li></NavLink>
-   <NavLink to={'/gameWatchList'}><li>Game WatchList</li></NavLink>
+   <NavLink to={`/gameWatchList/${user?.email}`}><li>Game WatchList</li></NavLink>
     </>
 
     return (
@@ -50,7 +50,7 @@ const handleSignOut =()=>{
    <NavLink to={'/allReview'}><li>All Reviews</li></NavLink>
    <NavLink to={'/addReview'}><li>Add Reviews</li></NavLink>
    <NavLink to={`/myReview/${user?.email}`}><li>My Reviews</li></NavLink>
-   <NavLink to={'/gameWatchList'}><li>Game WatchList</li></NavLink>
+   <NavLink to={`/gameWatchList/${user?.email}`}><li>Game WatchList</li></NavLink>
    
    <div>
     {
