@@ -5,7 +5,6 @@ import Navbar from "../Components/Navbar";
 
 const GameWatchList = () => {
    const watchLists = useLoaderData()
-   console.log(watchLists)
     return (
         <div>
             <Navbar></Navbar>
@@ -24,7 +23,7 @@ const GameWatchList = () => {
       </thead>
       <tbody>
        {
-          watchLists.map(watchList=>  <tr>
+          watchLists.map((watchList,idx)=>  <tr key={idx}>
               <td>
                 <div className="flex items-center gap-3">
                   <div className="avatar">

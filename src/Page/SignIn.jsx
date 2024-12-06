@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import { FaGamepad, FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../auth provider/AuthProvider";
 import Footer from "../Components/Footer";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
     const {loginWithEmail,signUpByGoogle}=useContext(AuthContext)
+ const navigate =useNavigate()
     const handleLogin=(e)=>{
         e.preventDefault()
         const form = e.target
@@ -14,16 +16,60 @@ const SignIn = () => {
         const password = form.password.value
         loginWithEmail(email,password)
         .then(result =>{
-            console.log(result)
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "successfully login complete ",
+            showConfirmButton: false,
+            timer: 1500,
+           
+        
+            
+          });
+            navigate('/')
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "something went wrong ",
+            showConfirmButton: false,
+            timer: 1500,
+            background:"black",
+            color:"red",
+        
+            
+          });
+        })
     }
     const handleGoogleLogin=()=>{
         signUpByGoogle()
         .then(result=> {
-            console.log(result.user)
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "successfully login complete ",
+            showConfirmButton: false,
+            timer: 1500,
+           
+        
+            
+          });
+            navigate('/')
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "something went wrong ",
+            showConfirmButton: false,
+            timer: 1500,
+            background:"black",
+            color:"red",
+        
+            
+          });
+        })
     }
     return (
         <div>

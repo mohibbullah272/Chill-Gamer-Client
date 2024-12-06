@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../auth provider/AuthProvider';
 import Swal from 'sweetalert2';
 
@@ -9,6 +9,7 @@ const ReviewDetails = () => {
     const details=useLoaderData()
     const {user}=useContext(AuthContext)
     console.log(details)
+    const navigate =useNavigate()
   const handleAddToWatchList=()=>{
 const description=details.description
 const rating=details.rating
@@ -65,7 +66,7 @@ const watchList ={name,email,gameName,GameCover,genres,publishYear,rating,descri
     <p>description : {details.description}</p>
     <p></p>
     <div className="card-actions ">
-      <button onClick={handleAddToWatchList} className="btn btn-block btn-outline">Add to WatchList</button>
+      <button onClick={()=> (user? handleAddToWatchList(): navigate('/login'))} className="btn btn-block btn-outline">Add to WatchList</button>
     </div>
   </div>
 </div>

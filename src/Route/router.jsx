@@ -10,6 +10,7 @@ import SignIn from '../Page/SignIn';
 import ReviewDetails from '../Page/ReviewDetails';
 import UpdateReview from '../Page/UpdateReview';
 import NotFound from '../Page/NotFound';
+import PrivetRoute from '../PrivetRoute/PrivetRoute';
 
 const router = createBrowserRouter([
     {
@@ -23,16 +24,22 @@ const router = createBrowserRouter([
     },
     {
         path: 'addReview',
-        element: <AddReviews></AddReviews>
+        element: <PrivetRoute>
+            <AddReviews></AddReviews>
+        </PrivetRoute>
     },
     {
         path: 'myReview/:email',
-        element:<MyReview></MyReview>,
+        element:<PrivetRoute>
+            <MyReview></MyReview>
+        </PrivetRoute>,
         loader:({params})=> fetch(`http://localhost:5500/myReview/${params.email}`)
     },
     {
         path:'gameWatchList/:email',
-        element:<GameWatchList></GameWatchList>,
+        element:<PrivetRoute>
+            <GameWatchList></GameWatchList>
+        </PrivetRoute>,
         loader:({params})=> fetch(`http://localhost:5500/watchList/${params.email}`)
     },
     {

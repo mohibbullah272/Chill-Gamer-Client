@@ -1,17 +1,29 @@
 import { FaGamepad, FaGoogle } from "react-icons/fa";
 import Navbar from "../Components/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../auth provider/AuthProvider";
 import Footer from "../Components/Footer";
+import Swal from "sweetalert2";
 
 
 const SignUp = () => {
     const {signUpByEmail,signUpByGoogle,updateUser}=useContext(AuthContext)
+    const navigate = useNavigate()
  const handleGoogleLogin=()=>{
     signUpByGoogle()
     .then(result=> {
-        console.log(result.user)
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "successfully signUp complete ",
+        showConfirmButton: false,
+        timer: 1500,
+       
+    
+        
+      });
+      navigate('/')
     })
     .catch(error => console.log(error))
  }
@@ -24,12 +36,22 @@ const SignUp = () => {
         const photo = form.photo.value
         signUpByEmail(email,password)
         .then(result=> {
-            console.log(result.user)
-            updateUser(name,photo)
-            .then(()=>{
-              console.log('profile update hoise')
-            })
-            .catch(err=> console.log(err))
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "successfully signUp complete ",
+            showConfirmButton: false,
+            timer: 1500,
+           
+        
+            
+          });
+          updateUser(name,photo)
+          .then(()=>{
+            console.log('profile update hoise')
+          })
+          .catch(err=> console.log(err))
+          navigate('/')
         })
         .catch(error => console.log(error))
     }

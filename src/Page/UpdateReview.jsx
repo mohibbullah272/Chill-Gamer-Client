@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 const UpdateReview = () => {
    
     const loadedReview = useLoaderData()
-    console.log(loadedReview)
+ 
     const options = [
         { value: '1', label: '1' },
         { value: '2', label: '2' },
@@ -38,7 +38,7 @@ const UpdateReview = () => {
   const rating = selectedOption ===null? loadedReview?.rating:selectedOption?.value
   const genres = selectedGenres ===null? loadedReview?.genres :selectedGenres?.value
   const update ={name,email,gameName,description,publishYear,rating,genres,GameCover}
-  console.log(update)
+ 
   fetch(`http://localhost:5500/updateReview/${loadedReview._id}`,{
     method:"PATCH",
     headers:{
