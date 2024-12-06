@@ -1,4 +1,6 @@
+import ConnectWithUs from "../Components/ConnectWithUs";
 import HighestRating from "../Components/HighestRating";
+import SuggestedGame from "../Components/SuggestedGame";
 
 
 const Home = () => {
@@ -10,6 +12,11 @@ const Home = () => {
        </section>
        <section>
         <h3 className="text-2xl text-center text-gray-300">Suggested Game to Play</h3>
+        <SuggestedGame></SuggestedGame>
+       </section>
+       <section className="max-w-7xl my-10 px-10 mx-auto">
+        <h3 className="text-3xl py-5 text-gray-300">More about us</h3>
+        <ConnectWithUs></ConnectWithUs>
        </section>
         </div>
     );
