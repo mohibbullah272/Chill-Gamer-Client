@@ -23,7 +23,6 @@ const GameWatchList = () => {
         </tr>
       </thead>
       <tbody>
-        {/* row 1 */}
        {
           watchLists.map(watchList=>  <tr>
               <td>
@@ -52,13 +51,12 @@ const GameWatchList = () => {
        }
      
     
-    
       </tbody>
     </table>
   </div>
  }
 
-          <footer className="mt-32">
+          <footer className="mt-52">
             <Footer></Footer>
           </footer>
         </div>
