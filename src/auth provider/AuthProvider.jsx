@@ -33,12 +33,12 @@ const unsubscribe = onAuthStateChanged(auth,currentUser=>{
     
     if(currentUser){
         setUser(currentUser)
-        setLoading(false)
     }
+    setLoading(false)
  
-    return ()=>{
-        unsubscribe()
-    }
+    return ()=>unsubscribe()
+     
+    
 })
 
 },[])

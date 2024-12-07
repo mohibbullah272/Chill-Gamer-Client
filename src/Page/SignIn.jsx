@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import { FaGamepad, FaGoogle } from "react-icons/fa";
-import { useContext } from "react";
+import { FaEye, FaEyeSlash, FaGamepad, FaGoogle } from "react-icons/fa";
+import { useContext, useState } from "react";
 import { AuthContext } from "../auth provider/AuthProvider";
 import Footer from "../Components/Footer";
 import Swal from "sweetalert2";
@@ -16,61 +16,84 @@ const SignIn = () => {
         const password = form.password.value
         loginWithEmail(email,password)
         .then(result =>{
-          Swal.fire({
+          const Toast = Swal.mixin({
+            toast: true,
             position: "top-end",
-            icon: "success",
-            title: "successfully login complete ",
             showConfirmButton: false,
-            timer: 1500,
-           
-        
-            
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Signed in successfully",
+            background:"#ccd2db"
           });
             navigate('/')
         })
         .catch(error => {
-          Swal.fire({
+          const Toast = Swal.mixin({
+            toast: true,
             position: "top-end",
-            icon: "error",
-            title: "something went wrong ",
             showConfirmButton: false,
-            timer: 1500,
-            background:"black",
-            color:"red",
-        
-            
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "error",
+            title: "something went wrong",
+            background:"#ccd2db"
           });
         })
     }
     const handleGoogleLogin=()=>{
         signUpByGoogle()
         .then(result=> {
-          Swal.fire({
+          const Toast = Swal.mixin({
+            toast: true,
             position: "top-end",
-            icon: "success",
-            title: "successfully login complete ",
             showConfirmButton: false,
-            timer: 1500,
-           
-        
-            
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Signed in successfully",
+            background:"#ccd2db"
           });
             navigate('/')
         })
         .catch(error => {
-          Swal.fire({
+          const Toast = Swal.mixin({
+            toast: true,
             position: "top-end",
-            icon: "error",
-            title: "something went wrong ",
             showConfirmButton: false,
-            timer: 1500,
-            background:"black",
-            color:"red",
-        
-            
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "error",
+            title: "something went wrong",
+            background:"#ccd2db"
           });
         })
     }
+    const [showPass,setShowPass]=useState(false)
     return (
         <div>
             <Navbar></Navbar>
@@ -90,11 +113,16 @@ const SignIn = () => {
           </label>
           <input type="email" name="email" placeholder="email" className="input input-bordered" required />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+          <input type={`${showPass?'text':'password'}`} name="password" placeholder="password" className="input input-bordered" required />
+          <div onClick={()=> setShowPass(!showPass)} className="absolute top-14 right-4">
+            {
+              showPass? <FaEyeSlash></FaEyeSlash>:<FaEye></FaEye>
+            }
+          </div>
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-neutral">Login

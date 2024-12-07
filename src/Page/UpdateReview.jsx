@@ -146,7 +146,7 @@ const UpdateReview = () => {
 </div>
 </form>
 </div>
-            <footer>
+            <footer className="mt-20">
                 <Footer></Footer>
             </footer>
         </div>

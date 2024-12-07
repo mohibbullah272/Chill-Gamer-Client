@@ -31,12 +31,21 @@ const watchList ={name,email,gameName,GameCover,genres,publishYear,rating,descri
     .then(res=> res.json())
     .then(data => {
       if(data.insertedId){
-        Swal.fire({
-          position: "top-left",
-          icon: "success",
-          title: "Review successfully added to watch list",
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
           showConfirmButton: false,
-          timer: 1500
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        });
+        Toast.fire({
+          icon: "success",
+          title: "successfully added to watchList",
+          background:"#ccd2db"
         });
       }
     })
