@@ -39,7 +39,7 @@ const UpdateReview = () => {
   const genres = selectedGenres ===null? loadedReview?.genres :selectedGenres?.value
   const update ={name,email,gameName,description,publishYear,rating,genres,GameCover}
  
-  fetch(`http://localhost:5500/updateReview/${loadedReview._id}`,{
+  fetch(`https://chill-gammer-server.vercel.app/updateReview/${loadedReview._id}`,{
     method:"PATCH",
     headers:{
       "content-type":"application/json"

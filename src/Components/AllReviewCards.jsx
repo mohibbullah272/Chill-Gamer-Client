@@ -1,9 +1,16 @@
+
+import { useEffect } from "react";
 import { MdArrowOutward } from "react-icons/md";
 import { Link } from "react-router-dom";
+import "aos/dist/aos.css"
+import Aos from "aos";
+
 const AllReviewCards = ({review}) => {
-   
+  useEffect(()=>{
+    Aos.init()
+  },[])
     return (
-        <div className="card bg-white/10 p-6 rounded-xl shadow-xl backdrop-blur-3xl text-white ">
+        <div data-aos='zoom-out' className="card bg-black/30 backdrop-blur-lg p-6 rounded-xl shadow-xl backdrop-blur-3xl text-white ">
   <div>
     <img
     className="p-5 transition-transform transform hover:scale-105  w-full md:h-[200px] h-[300px] rounded-3xl"

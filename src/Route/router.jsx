@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     {
         path:'allReview',
         element:<AllReview></AllReview>,
-        loader: ()=> fetch('http://localhost:5500/reviews')
+        loader: ()=> fetch('https://chill-gammer-server.vercel.app/reviews')
     },
     {
         path: 'addReview',
@@ -40,14 +40,14 @@ const router = createBrowserRouter([
         element:<PrivetRoute>
             <MyReview></MyReview>
         </PrivetRoute>,
-        loader:({params})=> fetch(`http://localhost:5500/myReview/${params.email}`)
+        loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/myReview/${params.email}`)
     },
     {
         path:'gameWatchList/:email',
         element:<PrivetRoute>
             <GameWatchList></GameWatchList>
         </PrivetRoute>,
-        loader:({params})=> fetch(`http://localhost:5500/watchList/${params.email}`)
+        loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/watchList/${params.email}`)
     },
     {
         path:'signUp',
@@ -60,12 +60,12 @@ const router = createBrowserRouter([
     {
         path:'allReview/reviewDetails/:id',
         element:<ReviewDetails></ReviewDetails>,
-        loader:({params})=> fetch(`http://localhost:5500/reviews/${params.id}`)
+        loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/reviews/${params.id}`)
     },
     {
         path: '/updateReview/:id',
         element: <UpdateReview></UpdateReview>,
-        loader:({params})=> fetch(`http://localhost:5500/reviews/${params.id}`)
+        loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/reviews/${params.id}`)
     },
     {
         path:'*',

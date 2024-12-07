@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const HighestRating = () => {
     const [ratings,setRatings]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5500/topReview')
+        fetch('https://chill-gammer-server.vercel.app/topReview')
         .then(res=> res.json())
         .then(data => setRatings(data))
     },[])
@@ -13,7 +13,7 @@ const HighestRating = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10'>
             
             {
-                ratings.map(rating => <div key={rating._id} className="card card-compact bg-zinc-500 shadow-xl">
+                ratings.map(rating => <div  key={rating._id} className="card card-compact bg-zinc-500 shadow-xl">
                     <figure>
                       <img
                       className='w-full h-[150px]'

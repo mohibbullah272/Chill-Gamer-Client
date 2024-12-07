@@ -25,7 +25,7 @@ const SignUp = () => {
       });
       navigate('/')
     })
-    .catch(error => console.log(error))
+    // .catch(error => console.log(error))
  }
     const handleSignUp=(e)=>{
         e.preventDefault()
@@ -93,12 +93,12 @@ const SignUp = () => {
           });
           updateUser(name,photo)
           .then(()=>{
-            console.log('profile update hoise')
+            // console.log('profile update hoise')
           })
-          .catch(err=> console.log(err))
+          // .catch(err=> console.log(err))
           navigate('/')
         })
-        .catch(error => console.log(error))
+        // .catch(error => console.log(error))
     }
     const [showPass,setPass]=useState(false)
    

@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
 import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../auth provider/AuthProvider';
 import Swal from 'sweetalert2';
-
+import "aos/dist/aos.css"
+import Aos from "aos";
 const ReviewDetails = () => {
     const details=useLoaderData()
     const {user}=useContext(AuthContext)
-    console.log(details)
+  
     const navigate =useNavigate()
   const handleAddToWatchList=()=>{
 const description=details.description
@@ -21,7 +22,7 @@ const name = user.displayName
 const email = user.email
 const watchList ={name,email,gameName,GameCover,genres,publishYear,rating,description}
 
-    fetch('http://localhost:5500/watchList',{
+    fetch('https://chill-gammer-server.vercel.app/watchList',{
       method:"POST",
       headers:{
         "content-type":"application/json"
@@ -50,6 +51,9 @@ const watchList ={name,email,gameName,GameCover,genres,publishYear,rating,descri
       }
     })
   }
+  useEffect(()=>{
+    Aos.init()
+  },[])
     return (
         <div>
             <header>
@@ -58,7 +62,9 @@ const watchList ={name,email,gameName,GameCover,genres,publishYear,rating,descri
             <h3 className='text-4xl text-gray-200 text-center py-4'>Unveiling the Game Full Review</h3>
             <main className='max-w-7xl md:px-10 px-5 mx-auto my-10'>
             
-            <div className="card card-compact bg-white/60 backdrop-blur-xl md:w-1/2 w-full  mx-auto shadow-xl">
+            <div data-aos="fade-down"
+     data-aos-easing="linear"
+     data-aos-duration="1500"  className="card card-compact bg-white/60 backdrop-blur-xl md:w-1/2 w-full  mx-auto shadow-xl">
             <div className="relative w-full h-64">
             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
   <img src={details.GameCover}  class="w-full h-full object-cover"/>

@@ -2,16 +2,22 @@
 import { useLoaderData } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
-
+import "aos/dist/aos.css"
+import Aos from "aos";
+import { useEffect } from "react";
 const GameWatchList = () => {
    const watchLists = useLoaderData()
+   useEffect(()=>{
+    Aos.init()
+  },[])
     return (
         <div>
             <Navbar></Navbar>
           
  {
-    watchLists.length <=0 ? <h3 className="text-4xl text-white text-center my-40">No Data Found !! <br /><span>please add watchList first</span></h3>:           <div className="overflow-x-auto md:px-20 my-10 max-w-6xl mx-auto text-white">
-    <table className="table">
+    watchLists.length <=0 ? <h3 className="text-4xl text-white text-center my-40">No Data Found !! <br /><span>please add watchList first</span></h3>:       <div data-aos="fade-up"
+    data-aos-duration="1000" className="overflow-x-auto md:px-20 my-10 max-w-6xl mx-auto text-white">
+    <table  className="table">
       {/* head */}
       <thead className="text-white">
         <tr>

@@ -5,6 +5,7 @@ import Select from 'react-select';
 import { FaPenAlt } from "react-icons/fa";
 import Footer from "../Components/Footer";
 import Swal from "sweetalert2";
+import { Bounce, Fade } from "react-awesome-reveal";
 
 const AddReviews = () => {
    const {user}=useContext(AuthContext)
@@ -38,8 +39,8 @@ const handleAddReview=(e)=>{
   const rating = selectedOption.value
   const genres = selectedGenres.value
   const review ={name,email,gameName,description,publishYear,rating,genres,GameCover}
-  console.log(review)
-  fetch('http://localhost:5500/addReviews',{
+ 
+  fetch('https://chill-gammer-server.vercel.app/addReviews',{
     method:"POST",
     headers:{
       "content-type":"application/json"
@@ -66,9 +67,13 @@ const handleAddReview=(e)=>{
         <div>
             <Navbar></Navbar>
   <div>
+    <Fade>
     <h3 className="text-3xl flex items-center gap-3 text-white justify-center">Write a Review <FaPenAlt className="text-2xl text-purple-300"></FaPenAlt></h3>
+    </Fade>
+    <Bounce>
     <p className="text-gray-300 w-1/2 mx-auto text-center"> 
-"Share your thoughts about the game! Provide a detailed review and rate the game to help others discover its true potential </p>
+    "Share your thoughts about the game! Provide a detailed review and rate the game to help others discover its true potential </p>
+    </Bounce>
   </div>
 
 <div className="mt-5 px-5">

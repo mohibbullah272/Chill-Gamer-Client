@@ -3,6 +3,8 @@ import { IoGameControllerOutline } from "react-icons/io5";
 import { useContext } from "react";
 import { AuthContext } from "../auth provider/AuthProvider";
 import { MdLogout } from "react-icons/md";
+import { Tooltip as ReactTooltip } from "react-tooltip";
+import 'react-tooltip/dist/react-tooltip.css'
 const Navbar = () => {
 const {user,logOutUser,setUser}=useContext(AuthContext)
 
@@ -10,9 +12,9 @@ const handleSignOut =()=>{
   logOutUser()
   .then(()=>{
     setUser(null)
-   console.log('done')
+  
   })
-  .catch(err=> console.log(err))
+ 
 }
 
 
@@ -23,6 +25,7 @@ const handleSignOut =()=>{
    <NavLink to={'/addReview'}><li>Add Reviews</li></NavLink>
    <NavLink to={`/myReview/${user?.email}`}><li>My Reviews</li></NavLink>
    <NavLink to={`/gameWatchList/${user?.email}`}><li>Game WatchList</li></NavLink>
+
     </>
 
     return (
@@ -53,8 +56,10 @@ const handleSignOut =()=>{
    <NavLink to={`/gameWatchList/${user?.email}`}><li>Game WatchList</li></NavLink>
    
    <div>
+
     {
      user ? <div className="flex items-center md:hidden gap-3">
+
      <img className="w-12 rounded-full" src={user.photoURL} alt="" />
      <button onClick={handleSignOut} className="btn border-none bg-red-500">SignOut
      <MdLogout className="text-xl"/>
@@ -87,7 +92,8 @@ const handleSignOut =()=>{
         <div className="navbar-end md:flex hidden ">
      {
       user ? <div className="flex items-center gap-3">
-<img className="w-12 h-[50px] rounded-full" src={user.photoURL} alt="" />
+<img data-tooltip-id="userName" data-tooltip-content={user.displayName} className="w-12 h-[50px] rounded-full" src={user.photoURL} alt="" />
+<ReactTooltip id="userName" place="top" effect="solid" />
 <button onClick={handleSignOut} className="btn border-none bg-red-500">SignOut
 <MdLogout className="text-xl"/>
 </button>
