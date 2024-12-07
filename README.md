@@ -1,8 +1,22 @@
-# React + Vite
+# project Name:
+### Chill Gamer
+live Link [https://chill-gamer-a150c.web.app/]
+# Project description
+*chill gamer is a game review based website hare user can find honest review about a specific game and upload there thoughts about there played games*
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# project features
++ *view all review with sort and filter functionality*
++ *Upload there own review with  some simple steps*
++ *User can store specific review as a watchList*
++ *For better experience we use light and dark mode theme*
++ *After uploaded a review user can update or delete there review*
++ *User friendly Mobile & tablet responsive*
 
-Currently, two official plugins are available:
+# Technologies used in this project
++ *Tailwind for design purpose*
++ *daisyUi use as a tailwind framework for better UI*
++ *React and React router used as a javaScript framework for dynamic routing and adding features*
++ *In the backend used express and mongodb for handle dynamic content*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
