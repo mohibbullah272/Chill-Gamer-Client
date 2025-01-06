@@ -11,8 +11,8 @@ const GameWatchList = () => {
     Aos.init()
   },[])
     return (
-        <div>
-            <Navbar></Navbar>
+        <div className="relative top-20">
+       
           
  {
     watchLists.length <=0 ? <h3 className="text-4xl text-white text-center my-40">No Data Found !! <br /><span>please add watchList first</span></h3>:       <div data-aos="fade-up"
@@ -61,9 +61,7 @@ const GameWatchList = () => {
   </div>
  }
 
-          <footer className="mt-52">
-            <Footer></Footer>
-          </footer>
+   
         </div>
     );
 };

@@ -46,8 +46,8 @@ Swal.fire({
     Aos.init()
   },[])
     return (
-        <div>
-            <Navbar></Navbar>
+        <div className="relative top-20">
+         
 <Fade>
 <h3 className="text-3xl text-gray-200 text-center">Browse your reviewed games</h3>
 
@@ -90,9 +90,7 @@ Swal.fire({
   </div>
 }
 
-            <footer>
-                <Footer></Footer>
-            </footer>
+          
         </div>
     );
 };

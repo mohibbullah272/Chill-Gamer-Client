@@ -70,7 +70,7 @@ const UpdateReview = () => {
     }
     return (
         <div>
-            <Navbar></Navbar>
+         
             <h3 className="text-3xl text-white text-center ">Update Your Review</h3>
             <div className="mt-5 px-5">
 <form onSubmit={handleUpdate}>
@@ -146,9 +146,7 @@ const UpdateReview = () => {
 </div>
 </form>
 </div>
-            <footer className="mt-20">
-                <Footer></Footer>
-            </footer>
+        
         </div>
     );
 };

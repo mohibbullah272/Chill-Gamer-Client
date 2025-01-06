@@ -64,8 +64,8 @@ const handleAddReview=(e)=>{
   form.reset()
 }
     return (
-        <div>
-            <Navbar></Navbar>
+        <div className="relative top-20 ">
+      
   <div>
     <Fade>
     <h3 className="text-3xl flex items-center gap-3 text-white justify-center">Write a Review <FaPenAlt className="text-2xl text-purple-300"></FaPenAlt></h3>
@@ -150,9 +150,7 @@ const handleAddReview=(e)=>{
 </div>
 </form>
 </div>
-<footer className="mt-20">
-  <Footer></Footer>
-</footer>
+
         </div>
     );
 };

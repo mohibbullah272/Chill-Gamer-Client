@@ -103,8 +103,8 @@ const SignUp = () => {
     const [showPass,setPass]=useState(false)
    
     return (
-        <div>
-           <Navbar></Navbar> 
+        <div className="relative top-20">
+       
            <div>
                 <h3 className="text-3xl text-center text-white">SignUp Now !</h3>
                 <div className="flex justify-center mt-5">
@@ -153,9 +153,7 @@ const SignUp = () => {
         <p>Already have an account ? <Link to={'/login'}><span className=" text-neutral-900 underline">Login</span></Link></p>
       </form>
     </div>
-    <footer className="mt-10">
-      <Footer></Footer>
-    </footer>
+ 
         </div>
     );
 };

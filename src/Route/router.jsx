@@ -12,65 +12,79 @@ import UpdateReview from '../Page/UpdateReview';
 import NotFound from '../Page/NotFound';
 import PrivetRoute from '../PrivetRoute/PrivetRoute';
 import Home from '../Page/Home';
+import TermsCondition from '../Page/TermsCondition';
+import SupportPage from '../Page/SupportPage';
+import AboutUs from '../Page/AboutUs';
 
 const router = createBrowserRouter([
     {
         path:'/',
         element: <Layout></Layout>,
+        errorElement:<NotFound></NotFound>,
         children:[
             {
                 path:'/',
                 element:<Home></Home>
+            },
+            {
+                path:'allReview',
+                element:<AllReview></AllReview>,
+                loader: ()=> fetch('https://chill-gammer-server.vercel.app/reviews')
+            },
+            {
+                path: 'addReview',
+                element: <PrivetRoute>
+                    <AddReviews></AddReviews>
+                </PrivetRoute>
+            },
+            {
+                path: 'myReview/:email',
+                element:<PrivetRoute>
+                    <MyReview></MyReview>
+                </PrivetRoute>,
+                loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/myReview/${params.email}`)
+            },
+            {
+                path:'gameWatchList/:email',
+                element:<PrivetRoute>
+                    <GameWatchList></GameWatchList>
+                </PrivetRoute>,
+                loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/watchList/${params.email}`)
+            },
+            {
+                path:'signUp',
+                element: <SignUp></SignUp>
+            },
+            {
+                path:'login',
+                element:<SignIn></SignIn>
+            },
+            {
+                path:'allReview/reviewDetails/:id',
+                element:<ReviewDetails></ReviewDetails>,
+                loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/reviews/${params.id}`)
+            },
+            {
+                path: '/updateReview/:id',
+                element: <UpdateReview></UpdateReview>,
+                loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/reviews/${params.id}`)
+            },
+            {
+                path:'/terms',
+                element:<TermsCondition></TermsCondition>
+            },
+            {
+                path:"/support",
+                element:<SupportPage></SupportPage>
+            },
+            {
+                path:'/aboutUs',
+                element:<AboutUs></AboutUs>
             }
+            
         ]
     },
-    {
-        path:'allReview',
-        element:<AllReview></AllReview>,
-        loader: ()=> fetch('https://chill-gammer-server.vercel.app/reviews')
-    },
-    {
-        path: 'addReview',
-        element: <PrivetRoute>
-            <AddReviews></AddReviews>
-        </PrivetRoute>
-    },
-    {
-        path: 'myReview/:email',
-        element:<PrivetRoute>
-            <MyReview></MyReview>
-        </PrivetRoute>,
-        loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/myReview/${params.email}`)
-    },
-    {
-        path:'gameWatchList/:email',
-        element:<PrivetRoute>
-            <GameWatchList></GameWatchList>
-        </PrivetRoute>,
-        loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/watchList/${params.email}`)
-    },
-    {
-        path:'signUp',
-        element: <SignUp></SignUp>
-    },
-    {
-        path:'login',
-        element:<SignIn></SignIn>
-    },
-    {
-        path:'allReview/reviewDetails/:id',
-        element:<ReviewDetails></ReviewDetails>,
-        loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/reviews/${params.id}`)
-    },
-    {
-        path: '/updateReview/:id',
-        element: <UpdateReview></UpdateReview>,
-        loader:({params})=> fetch(`https://chill-gammer-server.vercel.app/reviews/${params.id}`)
-    },
-    {
-        path:'*',
-        element:<NotFound></NotFound>
-    }
+   
 ])
 
 export default router;

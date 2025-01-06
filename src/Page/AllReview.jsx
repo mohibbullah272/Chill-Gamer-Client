@@ -25,8 +25,8 @@ const handleFilter=(genres)=>{
 }
 
     return (
-        <div>
-            <Navbar></Navbar>
+        <div className="relative top-20">
+        
             <div className="mt-5 ">
                <Fade cascade damping={0.1}>
                <h3 className="text-3xl font-semibold text-white text-center">Explore, Play, and Share</h3>
@@ -59,14 +59,12 @@ const handleFilter=(genres)=>{
 
                 </div>
             </div>
-            <div className="max-w-7xl mx-auto md:p-10 px-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-10">
+            <div className="max-w-7xl mx-auto md:p-10 px-5 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-5 mb-10">
                 {
                     reviews.map(review=> <AllReviewCards key={review._id} review={review}></AllReviewCards>)
                 }
             </div>
-            <footer>
-                <Footer></Footer>
-            </footer>
+      
         </div>
     );
 };

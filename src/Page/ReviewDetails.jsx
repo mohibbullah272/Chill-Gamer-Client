@@ -1,96 +1,104 @@
 import React, { useContext, useEffect } from 'react';
-import Navbar from '../Components/Navbar';
-import Footer from '../Components/Footer';
-import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../auth provider/AuthProvider';
 import Swal from 'sweetalert2';
-import "aos/dist/aos.css"
+import "aos/dist/aos.css";
 import Aos from "aos";
-const ReviewDetails = () => {
-    const details=useLoaderData()
-    const {user}=useContext(AuthContext)
-  
-    const navigate =useNavigate()
-  const handleAddToWatchList=()=>{
-const description=details.description
-const rating=details.rating
-const publishYear=details.publishYear
-const genres=details.genres
-const gameName=details.gameName
-const GameCover=details.GameCover
-const name = user.displayName
-const email = user.email
-const watchList ={name,email,gameName,GameCover,genres,publishYear,rating,description}
+import { FaCalendarAlt, FaInfo, FaStar } from 'react-icons/fa';
 
-    fetch('https://chill-gammer-server.vercel.app/watchList',{
-      method:"POST",
-      headers:{
-        "content-type":"application/json"
+const ReviewDetails = () => {
+  const details = useLoaderData();
+  const { user } = useContext(AuthContext);
+const navigate = useNavigate()
+  const handleAddToWatchList = () => {
+    const watchList = {
+      name: user.displayName,
+      email: user.email,
+      gameName: details.gameName,
+      GameCover: details.GameCover,
+      genres: details.genres,
+      publishYear: details.publishYear,
+      rating: details.rating,
+      description: details.description,
+    };
+
+    fetch('https://chill-gammer-server.vercel.app/watchList', {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
       },
-      body:JSON.stringify(watchList)
+      body: JSON.stringify(watchList)
     })
-    .then(res=> res.json())
+    .then(res => res.json())
     .then(data => {
-      if(data.insertedId){
-        const Toast = Swal.mixin({
+      if (data.insertedId) {
+        Swal.fire({
+          icon: "success",
+          title: "Added to Watchlist",
+          background: "#2D3748",
+          color: "#FFF",
           toast: true,
           position: "top-end",
           showConfirmButton: false,
           timer: 3000,
-          timerProgressBar: true,
-          didOpen: (toast) => {
-            toast.onmouseenter = Swal.stopTimer;
-            toast.onmouseleave = Swal.resumeTimer;
-          }
-        });
-        Toast.fire({
-          icon: "success",
-          title: "successfully added to watchList",
-          background:"#ccd2db"
         });
       }
-    })
-  }
-  useEffect(()=>{
-    Aos.init()
-  },[])
-    return (
-        <div>
-            <header>
-                <Navbar></Navbar>
-            </header>
-            <h3 className='text-4xl text-gray-200 text-center py-4'>Unveiling the Game Full Review</h3>
-            <main className='max-w-7xl md:px-10 px-5 mx-auto my-10'>
-            
-            <div data-aos="fade-down"
-     data-aos-easing="linear"
-     data-aos-duration="1500"  className="card card-compact bg-white/60 backdrop-blur-xl md:w-1/2 w-full  mx-auto shadow-xl">
-            <div className="relative w-full h-64">
-            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-  <img src={details.GameCover}  class="w-full h-full object-cover"/>
- 
- 
-</div>
-  <div className="card-body">
-    <h2 className="text-3xl"> {details.gameName}</h2>
-    <p className='font-bold text-xl'>Reviewer: {details.name}</p>
-    <p>Reviewer email: {details.email}</p>
-    <p>Rating: {details.rating}</p>
-    <p>Genres : {details?.genres}</p>
-    <p>Publish Year : {details.publishYear}</p>
-    <p>description : {details.description}</p>
-    <p></p>
-    <div className="card-actions ">
-      <button onClick={()=> (user? handleAddToWatchList(): navigate('/login'))} className="btn btn-block btn-outline">Add to WatchList</button>
-    </div>
-  </div>
-</div>
-            </main>
-            <footer>
-                <Footer></Footer>
-            </footer>
+    });
+  };
+
+  useEffect(() => {
+    Aos.init({ duration: 1200 });
+  }, []);
+
+  return (
+    <div className="relative max-w-7xl mx-auto md:px-10 px-5 pt-24 pb-12">
+  
+      <h3
+        data-aos="fade-up"
+        className="text-4xl font-bold text-gray-200 text-center pb-8 tracking-wide"
+      >
+        Unveiling the Game Full Review
+      </h3>
+
+   
+      <div className="flex flex-col lg:flex-row items-center gap-8 bg-gray-800 p-8 rounded-lg shadow-lg">
+   
+        <div className="flex-1">
+          <img
+            src={details.GameCover}
+            alt={details.gameName}
+            className="w-full h-auto lg:h-[400px] rounded-lg object-cover shadow-md"
+            data-aos="fade-right"
+          />
         </div>
-    );
+
+       
+        <div className="flex-1 text-white space-y-4" data-aos="fade-left">
+          <h4 className="text-3xl font-bold">{details.gameName}</h4>
+          <p className="text-gray-400">{details.description}</p>
+          <p className="flex items-center gap-2 text-yellow-500 text-lg font-semibold">
+            {details.rating} / 5 <FaStar />
+          </p>
+          <p className="flex items-center gap-2">
+            <FaInfo className="text-gray-400" /> 
+            <span className="text-gray-300">{details.genres}</span>
+          </p>
+          <p className="flex items-center gap-2">
+            <FaCalendarAlt className="text-gray-400" /> 
+            <span className="text-gray-300">{details.publishYear}</span>
+          </p>
+          <div className="pt-4">
+            <button
+              onClick={()=>user?handleAddToWatchList():navigate('/login')}
+              className="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-2 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105"
+            >
+              Add to Watchlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ReviewDetails;
