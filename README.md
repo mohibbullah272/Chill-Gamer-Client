@@ -34,6 +34,9 @@ First, clone the repository to your local machine using the following command:
 
 ```bash
 git clone https://github.com/mohibbullah272/chill-Gammer-Client.git
+cd your-repository-name
+npm install
+
 
 
 
