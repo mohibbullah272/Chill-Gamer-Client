@@ -1,7 +1,4 @@
-# project Name:
 ### Chill Gamer
-live Link [https://chill-gamer-a150c.web.app/]
-# Project description
 *chill gamer is a game review based website hare user can find honest review about a specific game and upload there thoughts about there played games*
 
 # project features
@@ -17,6 +14,8 @@ live Link [https://chill-gamer-a150c.web.app/]
 + *daisyUi use as a tailwind framework for better UI*
 + *React and React router used as a javaScript framework for dynamic routing and adding features*
 + *In the backend used express and mongodb for handle dynamic content*
+
+  live Link [https://chill-gamer-a150c.web.app/
 
 
 
