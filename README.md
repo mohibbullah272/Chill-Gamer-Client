@@ -33,20 +33,22 @@ Follow these steps to set up and run the project locally:
 First, clone the repository to your local machine using the following command:
 
 ```bash
-git clone https://github.com/mohibbullah272/chill-Gammer-Client.git
-cd your-repository-name
+git clone https://github.com/mohibbullah272/chill-Gamer-Client.git
+cd chill-Gamer-client
 npm install
 
 ```
 ### dependencies 
 <hr>
 "dependencies": {
+
     "aos": "^2.3.4",
     "firebase": "^11.0.2",
     "localforage": "^1.10.0",
     "match-sorter": "^8.0.0",
     "react": "^18.3.1",
     "react-awesome-reveal": "^4.2.14",
+    
     "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.6.5",
     "react-icons": "^5.4.0",
