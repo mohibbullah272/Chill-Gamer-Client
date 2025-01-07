@@ -37,6 +37,27 @@ git clone https://github.com/mohibbullah272/chill-Gammer-Client.git
 cd your-repository-name
 npm install
 
+```
+### dependencies 
+<hr>
+"dependencies": {
+    "aos": "^2.3.4",
+    "firebase": "^11.0.2",
+    "localforage": "^1.10.0",
+    "match-sorter": "^8.0.0",
+    "react": "^18.3.1",
+    "react-awesome-reveal": "^4.2.14",
+    "react-dom": "^18.3.1",
+    "react-fast-marquee": "^1.6.5",
+    "react-icons": "^5.4.0",
+    "react-router-dom": "^7.0.2",
+    "react-select": "^5.8.3",
+    "react-simple-typewriter": "^5.0.1",
+    "react-tooltip": "^5.28.0",
+    "sort-by": "^1.2.0",
+    "sweetalert2": "^11.14.5",
+    "swiper": "^11.1.15"
+  },
 
 
 
