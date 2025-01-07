@@ -1,6 +1,7 @@
 ### Chill Gamer
 *chill gamer is a game review based website hare user can find honest review about a specific game and upload there thoughts about there played games*
-
+ ## live Link
+ [https://chill-gamer-a150c.web.app/
 # project features
 + *view all review with sort and filter functionality*
 + *Upload there own review with  some simple steps*
@@ -15,7 +16,26 @@
 + *React and React router used as a javaScript framework for dynamic routing and adding features*
 + *In the backend used express and mongodb for handle dynamic content*
 
-  live Link [https://chill-gamer-a150c.web.app/
+## Prerequisites
+
+Before running the project, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (Recommended version: 16.x or higher)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+- [MongoDB](https://www.mongodb.com/) (For database)
+
+## Getting Started
+
+Follow these steps to set up and run the project locally:
+
+### 1. Clone the repository
+
+First, clone the repository to your local machine using the following command:
+
+```bash
+git clone https://github.com/mohibbullah272/chill-Gammer-Client.git
+
+
 
 
 
